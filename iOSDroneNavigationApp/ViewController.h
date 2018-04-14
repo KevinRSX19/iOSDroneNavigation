@@ -8,8 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+typedef NS_ENUM(NSUInteger, MissionMode) {
+    MissionMode_Nothing,
+    MissionMode_TakeOff,
+    MissionMode_Landing,
+    MissionMode_GoHome,
+    MissionMode_Followme,
+    MissionMode_ToLocation,
+    MissionMode_Explore,
+    MissionMode_Cleaning,
+};
 
+@interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *horizonSpeed;
+@property (weak, nonatomic) IBOutlet UILabel *vertialSpeed;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabal;
+@property (weak, nonatomic) IBOutlet UILabel *RCSignalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *VideoQualityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *BatteryLabel;
 
 @end
 
