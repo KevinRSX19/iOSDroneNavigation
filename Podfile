@@ -2,4 +2,5 @@
 
 target 'iOSDroneNavigationApp' do
   pod 'DJI-SDK-iOS', '~> 4.2.2'
+  pod 'CocoaLumberjack'
 end

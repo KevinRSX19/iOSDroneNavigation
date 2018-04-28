@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //setup logger
+    [DDLog addLogger:[DDTTYLogger sharedInstance]]; // TTY = Xcode console
+    [DDLog addLogger:[DDASLLogger sharedInstance]]; // ASL = Apple System Logs
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    //获取log文件夹路径
+    NSString *logDirectory = [fileLogger.logFileManager logsDirectory];
+    NSLog(@"ddlog dir:%@", logDirectory);
+    DDLogDebug(@"%@", logDirectory);
+    //获取排序后的log名称
+    NSArray <NSString *>*logsNameArray = [fileLogger.logFileManager sortedLogFileNames];
+    NSLog(@"%@", logsNameArray);
+    DDLogDebug(@"%@", logsNameArray);
+    [DDLog addLogger:fileLogger];
     return YES;
 }
 

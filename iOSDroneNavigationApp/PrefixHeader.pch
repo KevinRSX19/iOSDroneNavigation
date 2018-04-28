@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  iOSDroneNavigationApp
+//
+//  Created by 王凯旋 on 27/04/2018.
+//  Copyright © 2018 Kaixuan Wang. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define LOG_LEVEL_DEF ddLogLevel
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+
+#endif /* PrefixHeader_pch */
+

@@ -159,6 +159,7 @@
 		1B3AC85A1FEE103F00BEB095 /* OthersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OthersViewController.xib; sourceTree = "<group>"; };
 		1B5F49F61FD61C260000FAD4 /* DemoUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoUtility.h; sourceTree = "<group>"; };
 		1B5F49F71FD61C260000FAD4 /* DemoUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUtility.m; sourceTree = "<group>"; };
+		1B905C162093DC22007B4F2F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		1BD79C5920423E5A0052BD69 /* DroneLocationUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DroneLocationUpdate.h; sourceTree = "<group>"; };
 		1BD79C5A20423E5A0052BD69 /* DroneLocationUpdate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DroneLocationUpdate.m; sourceTree = "<group>"; };
 		1BD79C61204B883C0052BD69 /* WayPointModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WayPointModel.h; sourceTree = "<group>"; };
@@ -346,6 +347,7 @@
 				1BE5E81B1FBFE40C0018E7B0 /* Assets.xcassets */,
 				1BE5E81D1FBFE40C0018E7B0 /* LaunchScreen.storyboard */,
 				1BE5E8201FBFE40C0018E7B0 /* Info.plist */,
+				1B905C162093DC22007B4F2F /* PrefixHeader.pch */,
 				1BE5E8211FBFE40C0018E7B0 /* main.m */,
 			);
 			path = iOSDroneNavigationApp;
@@ -877,6 +879,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 436L8X6JUP;
 				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSDroneNavigationApp/PrefixHeader.pch";
 				INFOPLIST_FILE = iOSDroneNavigationApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjsu.graffiti.iOSDroneNavigationApp;
@@ -894,6 +898,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 436L8X6JUP;
 				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iOSDroneNavigationApp/PrefixHeader.pch";
 				INFOPLIST_FILE = iOSDroneNavigationApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sjsu.graffiti.iOSDroneNavigationApp;

@@ -63,6 +63,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *status;
 @property (weak, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
 
 @property (assign, nonatomic) MissionMode missionMode;
 
@@ -74,7 +75,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+//    const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+    
+    //init app
     [self initUI];
     [self registerApp];
     _mode = @"camera";
@@ -138,17 +142,20 @@
         //TODO: set connection mode: connected
         [self.leftBtnVC.takeoffBtn setEnabled:YES];
         _status.text = @"product connected!";
+        DDLogInfo(@"product connected!");
         DJIFlightController* flightController = [DemoUtility fetchFlightController];
         if (flightController) {
             flightController.delegate = self;
         }else{
             ShowMessage(@"flight controller delegate failed", nil, nil, @"ok");
+            DDLogError(@"flight controller delegate failed");
         }
     }else
     {
         [self productDisconnected];
         [self.leftBtnVC.takeoffBtn setEnabled:NO];
         _status.text = @"product disconnected!";
+        DDLogError(@"product disconnected!");
     }
     
     //If this demo is used in China, it's required to login to your DJI account to activate the application. Also you need to use DJI Go app to bind the aircraft to your DJI account. For more details, please check this demo's tutorial.
@@ -192,12 +199,12 @@
 - (void)initUI {
     //UI Views
     self.leftBtnVC = [[LeftButtonListViewController alloc] initWithNibName:@"LeftButtonListViewController" bundle:[NSBundle mainBundle]];
-    [self.leftBtnVC.view setFrame:CGRectMake(5, 90, self.leftBtnVC.view.frame.size.width, self.leftBtnVC.view.frame.size.height)];
+    [self.leftBtnVC.view setFrame:CGRectMake(20, 90, self.leftBtnVC.view.frame.size.width, self.leftBtnVC.view.frame.size.height)];
     self.leftBtnVC.delegate = self;
     [self.view addSubview:self.leftBtnVC.view];
     
     self.rightBtnVC = [[RightButtonListViewController alloc] initWithNibName:@"RightButtonListViewController" bundle:[NSBundle mainBundle]];
-    [self.rightBtnVC.view setFrame:CGRectMake(self.view.frame.size.width - 5 - self.rightBtnVC.view.frame.size.width, 90, self.rightBtnVC.view.frame.size.width, self.rightBtnVC.view.frame.size.height)];
+    [self.rightBtnVC.view setFrame:CGRectMake(self.view.frame.size.width - 20 - self.rightBtnVC.view.frame.size.width, 90, self.rightBtnVC.view.frame.size.width, self.rightBtnVC.view.frame.size.height)];
     self.rightBtnVC.delegate = self;
     [self.view addSubview:self.rightBtnVC.view];
     
@@ -209,7 +216,7 @@
     
     self.mapVC = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:[NSBundle mainBundle]];
     self.mapVC.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
-    [self.mapVC.view setFrame:CGRectMake(20, self.view.frame.size.height - 176, 207, 112)];
+    [self.mapVC.view setFrame:CGRectMake(20, self.view.frame.size.height - 142, 207, 112)];
     NSLog(@"init size: %f",self.backView.frame.size.height);
     NSLog(@"init view size: %f",self.view.frame.size.height);
     self.mapVC.delegate = self;
@@ -283,6 +290,7 @@
     NSLog(@"takeoff btn clicked");
     [UIView animateWithDuration:0.25 animations:^{
         self.takeoffVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
@@ -290,6 +298,7 @@
     NSLog(@"landing btn clicked");
     [UIView animateWithDuration:0.25 animations:^{
         self.landingVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
@@ -298,6 +307,7 @@
     [self.folloemeConfigVC loadDefaultSettings:[self.folloemeConfigVC.followmeMission getDefaultSettings]];
     [UIView animateWithDuration:0.25 animations:^{
         self.folloemeConfigVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
@@ -306,6 +316,7 @@
     NSLog(@"explore btn clicked");
     [UIView animateWithDuration:0.25 animations:^{
         self.exploreConfigVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
@@ -317,6 +328,7 @@
     }
     [UIView animateWithDuration:0.25 animations:^{
         self.gimbleVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
@@ -333,6 +345,7 @@
     NSLog(@"cleaning btn clicked");
     [UIView animateWithDuration:0.25 animations:^{
         self.cleaningVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
@@ -365,12 +378,14 @@
 - (void)addBtnClickedInMapVC:(MapViewController *)MapVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.addPinVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
 - (void)configBtnClickedInMapVC:(MapViewController *)MapVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.toLocationConfigVC.view.alpha = 1;
+        [self hideButtons];
     }];
 }
 
@@ -403,6 +418,7 @@
     if ([self.voiceVC.command containsString:@"followme"]) {
         [UIView animateWithDuration:0.25 animations:^{
             self.folloemeConfigVC.view.alpha = 1;
+            [self hideButtons];
         }];
     } else if ([self.voiceVC.command containsString:@"tolocation"]) {
         if (self.mapVC.mode == MapViewMode_MiniMode){
@@ -424,12 +440,14 @@
 - (IBAction)statusBtnClicked:(id)sender {
     [UIView animateWithDuration:0.25 animations:^{
         self.checkListTableVC.view.alpha = 1.0;
+        [self hideButtons];
     }];
 }
 
 - (void)closeBtnClickedInCheckListTVC:(CheckListTableViewController *)CheckListTVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.checkListTableVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
@@ -437,12 +455,14 @@
 - (IBAction)voiceControlBtnClicked:(id)sender {
     [UIView animateWithDuration:0.25 animations:^{
         self.voiceVC.view.alpha = 1.0;
+        [self hideButtons];
     }];
 }
 
 - (void)closeBtnActionInVoiceVC:(VoiceViewController *)VoiceVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.voiceVC.view.alpha = 0;
+        [self showButtons];
     }];
     [self.voiceVC clearSpeechCommandPanel];
 }
@@ -509,12 +529,14 @@
 - (void)CancelBtnActionInTakeoffVC:(TakeoffViewController *)TakeoffVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.takeoffVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
 - (void)TakeoffBtnActionInTakeoffVC:(TakeoffViewController *)TakeoffVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.takeoffVC.view.alpha = 0;
+        [self showButtons];
     }];
     [self takeoffMission];
 }
@@ -523,6 +545,7 @@
 - (void)setBtnClickedInAddPinVC:(AddPinViewController *)AddPinVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.addPinVC.view.alpha = 0;
+        [self showButtons];
     }];
     
     if(self.addPinVC.type.selectedSegmentIndex==1){
@@ -548,6 +571,7 @@
 - (void)cancelBtnClickedInAddPinVC:(AddPinViewController *)AddPinVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.addPinVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
@@ -555,6 +579,7 @@
 - (void)startBtnActionInLocaConfigVC:(ToLocationConfigViewController *)LocaConfigVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.toLocationConfigVC.view.alpha = 0;
+        [self showButtons];
     }];
     
     [self.mapVC clearPinPoints];
@@ -564,6 +589,7 @@
 - (void)cancelBtnActionInLocaConfigVC:(ToLocationConfigViewController *)LocaConfigVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.toLocationConfigVC.view.alpha = 0;
+        [self showButtons];
     }];
     [self.mapVC clearPinPoints];
 }
@@ -578,6 +604,7 @@
 - (void)startBtnActionInFollowmeConfigVC:(FollowmeConfigViewController *)FollowmeVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.folloemeConfigVC.view.alpha = 0;
+        [self showButtons];
     }];
     [self.mapVC setFollowmeMode:FollowmeMode_Following];
     _missionMode = MissionMode_Followme;
@@ -586,6 +613,7 @@
 - (void)cancelBtnActionInFollowmeConfigVC:(FollowmeConfigViewController *)FollowmeVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.folloemeConfigVC.view.alpha = 0;
+        [self showButtons];
     }];
     [self.mapVC setFollowmeMode:FollowmeMode_Stopped];
 }
@@ -594,6 +622,7 @@
 - (void)landingBtnActionInLandingVC:(LandingViewController *)LandingVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.landingVC.view.alpha = 0;
+        [self showButtons];
     }];
     [self landingMission];
 }
@@ -601,6 +630,7 @@
 - (void)cancelBtnActionInLandingVC:(LandingViewController *)LandingVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.landingVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
@@ -608,12 +638,14 @@
 - (void)startBtnActionInGimbleVC:(GimbleViewController *)GimbleVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.gimbleVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
 - (void)cancelBtnActionInGimbleVC:(GimbleViewController *)GimbleVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.gimbleVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
@@ -621,6 +653,7 @@
 - (void)startBtnActionInExploreVC:(ExploreConfigViewController *)ExploreVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.exploreConfigVC.view.alpha = 0;
+        [self showButtons];
     }];
     _missionMode = MissionMode_Explore;
 }
@@ -628,6 +661,7 @@
 - (void)cancelBtnActionInExploreVC:(ExploreConfigViewController *)ExploreVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.exploreConfigVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
@@ -635,6 +669,7 @@
 - (IBAction)othersAction:(id)sender {
     [UIView animateWithDuration:0.25 animations:^{
         self.othersVC.view.alpha = 1;
+        [self hideButtons];
     }];
     [self.othersVC displayMaxFlightHeight];
     [self.othersVC displayFlightRadiusLimitation];
@@ -643,6 +678,7 @@
 - (void)closeBtnActionInOthersVC:(OthersViewController *)OthersVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.othersVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
@@ -673,6 +709,7 @@
 -(void)startBtnActionInCleaningVC:(CleaningViewController *)CleaningVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.cleaningVC.view.alpha = 0;
+        [self showButtons];
     }];
     [self cleaningMission];
 }
@@ -680,6 +717,7 @@
 -(void)cancelBtnActionInCleaningVC:(CleaningViewController *)CleaningVC {
     [UIView animateWithDuration:0.25 animations:^{
         self.cleaningVC.view.alpha = 0;
+        [self showButtons];
     }];
 }
 
@@ -905,6 +943,18 @@
         default:
             break;
     }
+}
+
+-(void)hideButtons {
+    self.leftBtnVC.view.alpha = 0;
+    self.rightBtnVC.view.alpha = 0;
+    self.voiceBtn.alpha = 0;
+}
+
+-(void)showButtons {
+    self.leftBtnVC.view.alpha = 1;
+    self.rightBtnVC.view.alpha = 1;
+    self.voiceBtn.alpha = 1;
 }
 
 @end
