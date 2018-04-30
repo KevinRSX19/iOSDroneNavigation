@@ -26,6 +26,7 @@ typedef NS_ENUM(NSUInteger, MissionMode) {
 @property (weak, nonatomic) IBOutlet UILabel *RCSignalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *VideoQualityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *BatteryLabel;
+@property (weak, nonatomic) IBOutlet UIView *topBarView;
 
 @end
 

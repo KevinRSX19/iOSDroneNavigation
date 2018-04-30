@@ -114,8 +114,46 @@
     }
 }
 
-- (void)followMeConfig {
-    
+- (void) flightOrientationMode:(int)orientation {
+    DJIFlightController* fc = [DemoUtility fetchFlightController];
+    if (fc) {
+        switch (orientation) {
+            case DJIFlightOrientationModeHomeLock:
+                [fc setFlightOrientationMode:DJIFlightOrientationModeHomeLock withCompletion:^(NSError * _Nullable error) {
+                    if (error) {
+                        ShowResult(@"Set Flight Orientation Error:%@", error.description);
+                        DDLogError(@"Set Flight Orientation Error:%@", error.description);
+                    }else {
+                        DDLogInfo(@"Set Flight Orientation To HomeLock Mode");
+                    }
+                }];
+                break;
+            case DJIFlightOrientationModeCourseLock:
+                [fc setFlightOrientationMode:DJIFlightOrientationModeCourseLock withCompletion:^(NSError * _Nullable error) {
+                    if (error) {
+                        ShowResult(@"Set Flight Orientation Error:%@", error.description);
+                        DDLogError(@"Set Flight Orientation Error:%@", error.description);
+                    }else {
+                        DDLogInfo(@"Set Flight Orientation To CourseLock Mode");
+                    }
+                }];
+                break;
+            case DJIFlightOrientationModeAircraftHeading:
+                [fc setFlightOrientationMode:DJIFlightOrientationModeAircraftHeading withCompletion:^(NSError * _Nullable error) {
+                    if (error) {
+                        ShowResult(@"Set Flight Orientation Error:%@", error.description);
+                        DDLogError(@"Set Flight Orientation Error:%@", error.description);
+                    }else {
+                        DDLogInfo(@"Set Flight Orientation To AircraftHeading Mode");
+                    }
+                }];
+                break;
+                
+            default:
+                DDLogError(@"Set Flight Orientation Error: Input Invalid");
+                break;
+        }
+    }
 }
 
 @end

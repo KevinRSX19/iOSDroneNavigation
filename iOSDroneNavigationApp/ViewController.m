@@ -22,6 +22,7 @@
 #import "GimbleViewController.h"
 #import "OthersViewController.h"
 #import "CleaningViewController.h"
+#import "VirtualStickCleaningViewController.h"
 #import <DJISDK/DJISDK.h>
 #import "DemoUtility.h"
 
@@ -32,7 +33,7 @@
 #define ONE_METER_OFFSET (0.00000901315)
 #define ANGAL_TO_RAD_OFFSET (0.01745329)
 
-@interface ViewController () <DJISDKManagerDelegate,LeftButtonListViewControllerDelegate,RightButtonListViewControllerDelegate,MapViewControllerDelegate,VideoViewControllerDelegate,CheckListTableViewControllerDelegate,VoiceViewControllerDelegate,TakeoffViewControllerDelegate,AddPinViewControllerDelegate,ToLocationConfigViewControllerDelegate,FollowmeConfigViewControllerDelegate,LandingViewControllerDelegate,ExploreConfigViewControllerDelegate,GimbleViewControllerDelegate,DJIFlightControllerDelegate,DJIRemoteControllerDelegate,DJIBatteryDelegate,OthersViewControllerDelegate,CleaningViewControllerDelegate>
+@interface ViewController () <DJISDKManagerDelegate,LeftButtonListViewControllerDelegate,RightButtonListViewControllerDelegate,MapViewControllerDelegate,VideoViewControllerDelegate,CheckListTableViewControllerDelegate,VoiceViewControllerDelegate,TakeoffViewControllerDelegate,AddPinViewControllerDelegate,ToLocationConfigViewControllerDelegate,FollowmeConfigViewControllerDelegate,LandingViewControllerDelegate,ExploreConfigViewControllerDelegate,GimbleViewControllerDelegate,DJIFlightControllerDelegate,DJIRemoteControllerDelegate,DJIBatteryDelegate,OthersViewControllerDelegate,CleaningViewControllerDelegate,VirtualStickCleaningViewControllerDelegate>
 
 @property (strong, nonatomic) LeftButtonListViewController* leftBtnVC;
 @property (strong, nonatomic) RightButtonListViewController* rightBtnVC;
@@ -50,6 +51,7 @@
 @property (strong, nonatomic) GimbleViewController* gimbleVC;
 @property (strong, nonatomic) OthersViewController* othersVC;
 @property (strong, nonatomic) CleaningViewController* cleaningVC;
+@property (strong, nonatomic) VirtualStickCleaningViewController* vsCleaningVC;
 
 //@property(nonatomic, assign) CLLocationCoordinate2D userLocation;
 @property(nonatomic, assign) CLLocationCoordinate2D homeLocation;
@@ -243,6 +245,13 @@
     self.othersVC.view.autoresizingMask = UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
     [self.othersVC.view setFrame:CGRectMake(self.view.frame.size.width - self.othersVC.view.frame.size.width, 0, self.othersVC.view.frame.size.width, self.view.frame.size.height)];
     [self.view addSubview:self.othersVC.view];
+    
+    self.vsCleaningVC = [[VirtualStickCleaningViewController alloc] initWithNibName:@"VirtualStickCleaningViewController" bundle:[NSBundle mainBundle]];
+    self.vsCleaningVC.delegate = self;
+    self.vsCleaningVC.view.alpha = 0;
+    self.vsCleaningVC.view.autoresizingMask = UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleBottomMargin;
+    [self.vsCleaningVC.view setFrame:CGRectMake(0, self.view.frame.size.height - self.vsCleaningVC.view.frame.size.height, self.view.frame.size.width, self.vsCleaningVC.view.frame.size.height)];
+    [self.view addSubview:self.vsCleaningVC.view];
     
     //Mission Config UIs
     self.landingVC = [[LandingViewController alloc] initWithNibName:@"LandingViewController" bundle:[NSBundle mainBundle]];
@@ -553,6 +562,7 @@
         float lon = [self.addPinVC.lon.text floatValue];
         CLLocation* location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
         [self.mapVC.mapController addLocationPoint:location withMapView:self.mapVC.mapView];
+        //TODO: add three pin points between target and user
     }else{
         NSString* address = self.addPinVC.address.text;
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -563,6 +573,7 @@
                 CLPlacemark *firstPlacemark = [placemarks firstObject];
                 CLLocation* location = firstPlacemark.location;
                 [self.mapVC.mapController addLocationPoint:location withMapView:self.mapVC.mapView];
+                //TODO: add three pin points between target and user
             }
         }];
     }
@@ -910,8 +921,27 @@
 }
 
 - (void)cleaningMission{
-    [self.toLocationConfigVC onStartButtonClicked];
+//    [self.toLocationConfigVC onStartButtonClicked];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.vsCleaningVC.view.alpha = 1.0;
+        [self hideButtons];
+    }];
+    
+    if(self.cleaningVC.mode.selectedSegmentIndex == 0) {
+        //vertical cleaning
+        [self.vsCleaningVC startVSCleaning:[self.cleaningVC.g_length.text doubleValue] height:[self.cleaningVC.g_height.text doubleValue] cleaningMode:CleaningMode_VerMode];
+    } else {
+        //horizonal cleaning
+        [self.vsCleaningVC startVSCleaning:[self.cleaningVC.g_length.text doubleValue] height:[self.cleaningVC.g_height.text doubleValue] cleaningMode:CleaningMode_HoriMode];
+    }
     _missionMode = MissionMode_Cleaning;
+}
+
+- (void)stopCleaningActionInVSCleaningVC:(VirtualStickCleaningViewController *)VSCleaningVC {
+    [UIView animateWithDuration:0.25 animations:^{
+        self.vsCleaningVC.view.alpha = 0;
+        [self showButtons];
+    }];
 }
 
 -(void)stopMission{
@@ -921,7 +951,8 @@
             [self.folloemeConfigVC stopMission];
             break;
         case MissionMode_Cleaning:
-            [self.toLocationConfigVC stopMission];
+//            [self.toLocationConfigVC stopMission];
+            [self.vsCleaningVC stopMission];
             break;
         case MissionMode_Explore:
             [self.exploreConfigVC stopMission];
@@ -949,12 +980,23 @@
     self.leftBtnVC.view.alpha = 0;
     self.rightBtnVC.view.alpha = 0;
     self.voiceBtn.alpha = 0;
+    self.topBarView.alpha = 0;
+    self.status.alpha = 0;
+    self.distanceLabal.alpha = 0;
+    self.horizonSpeed.alpha = 0;
+    self.vertialSpeed.alpha = 0;
+    
 }
 
 -(void)showButtons {
     self.leftBtnVC.view.alpha = 1;
     self.rightBtnVC.view.alpha = 1;
     self.voiceBtn.alpha = 1;
+    self.topBarView.alpha = 1;
+    self.status.alpha = 1;
+    self.distanceLabal.alpha = 1;
+    self.horizonSpeed.alpha = 1;
+    self.vertialSpeed.alpha = 1;
 }
 
 @end

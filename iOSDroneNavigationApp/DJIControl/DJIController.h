@@ -20,7 +20,7 @@
 - (void) cancelLanding;
 - (void) cancelGoHome;
 
-- (void) followMeConfig;
+- (void) flightOrientationMode:(int)orientation;
 //- (void) followMeExecute;
 //
 //- (void) toLocationConfig;

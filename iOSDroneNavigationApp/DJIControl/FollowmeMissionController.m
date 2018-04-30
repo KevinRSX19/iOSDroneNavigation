@@ -174,8 +174,7 @@
     }
 }
 
--(void) onUpdateTimerTicked:(id)sender
-{
+-(void) onUpdateTimerTicked:(id)sender {
     //calculate max_distance = maxSpeed * updateTimeInterval
     CLLocationDistance distance = [FollowmeMissionController calculateDistanceBetweenPoint:self.userLocation andPoint:self.droneLocation];
     double maxDistance = [self.followmeModel.maxFlySpeed doubleValue] * [self.followmeModel.updateTimeInterval doubleValue];

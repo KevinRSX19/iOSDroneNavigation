@@ -25,6 +25,7 @@
 		1B1A65C01FD8D6A600961F63 /* ExploreConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A65BE1FD8D6A600961F63 /* ExploreConfigViewController.xib */; };
 		1B1A65C41FD8D6BC00961F63 /* GimbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A65C21FD8D6BC00961F63 /* GimbleViewController.m */; };
 		1B1A65C51FD8D6BC00961F63 /* GimbleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A65C31FD8D6BC00961F63 /* GimbleViewController.xib */; };
+		1B298AE72093FA200064068A /* VirtualStickController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B298AE62093FA200064068A /* VirtualStickController.m */; };
 		1B3AC82C1FE746D000BEB095 /* DJIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3AC82B1FE746D000BEB095 /* DJIController.m */; };
 		1B3AC82D1FE7497400BEB095 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE5E8681FD0C58D0018E7B0 /* MapKit.framework */; };
 		1B3AC8401FE74B3700BEB095 /* VideoPreviewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3AC83F1FE74AC300BEB095 /* VideoPreviewer.framework */; };
@@ -37,6 +38,8 @@
 		1B3AC85B1FEE103F00BEB095 /* OthersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3AC8591FEE103F00BEB095 /* OthersViewController.m */; };
 		1B3AC85C1FEE103F00BEB095 /* OthersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AC85A1FEE103F00BEB095 /* OthersViewController.xib */; };
 		1B5F49F81FD61C260000FAD4 /* DemoUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5F49F71FD61C260000FAD4 /* DemoUtility.m */; };
+		1B66346020968123007CFCD4 /* VirtualStickCleaningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B66345E20968123007CFCD4 /* VirtualStickCleaningViewController.m */; };
+		1B66346120968123007CFCD4 /* VirtualStickCleaningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B66345F20968123007CFCD4 /* VirtualStickCleaningViewController.xib */; };
 		1BD79C5B20423E5A0052BD69 /* DroneLocationUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD79C5A20423E5A0052BD69 /* DroneLocationUpdate.m */; };
 		1BD79C63204B883C0052BD69 /* WayPointModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD79C62204B883C0052BD69 /* WayPointModel.m */; };
 		1BD79C66204CE0420052BD69 /* DroneStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD79C65204CE0420052BD69 /* DroneStatusModel.m */; };
@@ -142,6 +145,8 @@
 		1B1A65C11FD8D6BC00961F63 /* GimbleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GimbleViewController.h; sourceTree = "<group>"; };
 		1B1A65C21FD8D6BC00961F63 /* GimbleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GimbleViewController.m; sourceTree = "<group>"; };
 		1B1A65C31FD8D6BC00961F63 /* GimbleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GimbleViewController.xib; sourceTree = "<group>"; };
+		1B298AE52093FA200064068A /* VirtualStickController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VirtualStickController.h; sourceTree = "<group>"; };
+		1B298AE62093FA200064068A /* VirtualStickController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VirtualStickController.m; sourceTree = "<group>"; };
 		1B3AC82A1FE746D000BEB095 /* DJIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJIController.h; sourceTree = "<group>"; };
 		1B3AC82B1FE746D000BEB095 /* DJIController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJIController.m; sourceTree = "<group>"; };
 		1B3AC83A1FE74AC200BEB095 /* VideoPreviewer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideoPreviewer.xcodeproj; path = VideoPreviewer/VideoPreviewer.xcodeproj; sourceTree = "<group>"; };
@@ -159,6 +164,9 @@
 		1B3AC85A1FEE103F00BEB095 /* OthersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OthersViewController.xib; sourceTree = "<group>"; };
 		1B5F49F61FD61C260000FAD4 /* DemoUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoUtility.h; sourceTree = "<group>"; };
 		1B5F49F71FD61C260000FAD4 /* DemoUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUtility.m; sourceTree = "<group>"; };
+		1B66345D20968123007CFCD4 /* VirtualStickCleaningViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VirtualStickCleaningViewController.h; sourceTree = "<group>"; };
+		1B66345E20968123007CFCD4 /* VirtualStickCleaningViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VirtualStickCleaningViewController.m; sourceTree = "<group>"; };
+		1B66345F20968123007CFCD4 /* VirtualStickCleaningViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VirtualStickCleaningViewController.xib; sourceTree = "<group>"; };
 		1B905C162093DC22007B4F2F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		1BD79C5920423E5A0052BD69 /* DroneLocationUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DroneLocationUpdate.h; sourceTree = "<group>"; };
 		1BD79C5A20423E5A0052BD69 /* DroneLocationUpdate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DroneLocationUpdate.m; sourceTree = "<group>"; };
@@ -274,6 +282,9 @@
 				1B3AC84F1FEB215E00BEB095 /* CleaningViewController.h */,
 				1B3AC8501FEB215E00BEB095 /* CleaningViewController.m */,
 				1B3AC8511FEB215E00BEB095 /* CleaningViewController.xib */,
+				1B66345D20968123007CFCD4 /* VirtualStickCleaningViewController.h */,
+				1B66345E20968123007CFCD4 /* VirtualStickCleaningViewController.m */,
+				1B66345F20968123007CFCD4 /* VirtualStickCleaningViewController.xib */,
 				1B3AC8541FEC7DC900BEB095 /* DJIGimbal+CapabilityCheck.h */,
 				1B3AC8551FEC7DC900BEB095 /* DJIGimbal+CapabilityCheck.m */,
 			);
@@ -423,6 +434,8 @@
 				1B3AC8461FE74D1300BEB095 /* FollowmeMissionController.m */,
 				1B3AC84C1FEAEB9400BEB095 /* TimelineMissionController.h */,
 				1B3AC84D1FEAEB9400BEB095 /* TimelineMissionController.m */,
+				1B298AE52093FA200064068A /* VirtualStickController.h */,
+				1B298AE62093FA200064068A /* VirtualStickController.m */,
 			);
 			path = DJIControl;
 			sourceTree = "<group>";
@@ -594,6 +607,7 @@
 				1B1A65991FD7DCC800961F63 /* TakeoffViewController.xib in Resources */,
 				1BE5E8491FCFC4DA0018E7B0 /* LeftButtonListViewController.xib in Resources */,
 				1B1A65B51FD8B2E000961F63 /* FollowmeConfigViewController.xib in Resources */,
+				1B66346120968123007CFCD4 /* VirtualStickCleaningViewController.xib in Resources */,
 				1BE5E8601FCFCBB50018E7B0 /* VideoViewController.xib in Resources */,
 				1B1A65B01FD8ADCF00961F63 /* ToLocationConfigViewController.xib in Resources */,
 				1BE5E81A1FBFE40C0018E7B0 /* Main.storyboard in Resources */,
@@ -681,10 +695,12 @@
 				1B1A65A81FD89DE100961F63 /* DJIAircraftAnnotation.m in Sources */,
 				1B3AC84E1FEAEB9400BEB095 /* TimelineMissionController.m in Sources */,
 				1B1A65BF1FD8D6A600961F63 /* ExploreConfigViewController.m in Sources */,
+				1B66346020968123007CFCD4 /* VirtualStickCleaningViewController.m in Sources */,
 				1B1A65A51FD89D8C00961F63 /* DJIMapController.m in Sources */,
 				1BE5E86D1FD0F1720018E7B0 /* VoiceViewController.m in Sources */,
 				1BE5E8171FBFE40C0018E7B0 /* ViewController.m in Sources */,
 				1BE5E8221FBFE40C0018E7B0 /* main.m in Sources */,
+				1B298AE72093FA200064068A /* VirtualStickController.m in Sources */,
 				1B1A65C41FD8D6BC00961F63 /* GimbleViewController.m in Sources */,
 				1BE5E8651FD0C2630018E7B0 /* CheckListTableViewController.m in Sources */,
 				1B1A65B91FD8C08B00961F63 /* LandingViewController.m in Sources */,
