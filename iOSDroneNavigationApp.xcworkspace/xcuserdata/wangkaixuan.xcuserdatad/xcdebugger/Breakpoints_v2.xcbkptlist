@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIController.m"
-            timestampString = "546745360.201791"
+            timestampString = "547865943.2454931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIController.m"
-            timestampString = "546745360.201888"
+            timestampString = "547865943.245554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
@@ -490,7 +490,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.147404"
+            timestampString = "546749456.659019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -506,7 +506,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.147457"
+            timestampString = "546749456.659062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -522,7 +522,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.147505"
+            timestampString = "546749456.659114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -682,7 +682,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.148032"
+            timestampString = "546749456.659264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -698,7 +698,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.148082"
+            timestampString = "546749456.659301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -714,7 +714,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.148129"
+            timestampString = "546749456.659336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -730,7 +730,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.148176"
+            timestampString = "546749456.6593699"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -746,7 +746,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.148221"
+            timestampString = "546749456.659404"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -762,7 +762,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/DJIMapController.m"
-            timestampString = "536279056.148264"
+            timestampString = "546749456.6594369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -826,11 +826,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.202594"
+            timestampString = "547865943.246437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "604"
-            endingLineNumber = "604"
+            startingLineNumber = "623"
+            endingLineNumber = "623"
             landmarkName = "-cancelBtnActionInLocaConfigVC:"
             landmarkType = "7">
          </BreakpointContent>
@@ -842,11 +842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.202669"
+            timestampString = "547865943.246489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "605"
-            endingLineNumber = "605"
+            startingLineNumber = "624"
+            endingLineNumber = "624"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -858,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.202721"
+            timestampString = "547865943.246532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
             landmarkName = "-landingBtnActionInLBtnVC:"
             landmarkType = "7">
          </BreakpointContent>
@@ -874,13 +874,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.202774"
+            timestampString = "547865943.246575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
-            landmarkName = "ViewController"
-            landmarkType = "3">
+            startingLineNumber = "316"
+            endingLineNumber = "316"
+            landmarkName = "-landingBtnActionInLBtnVC:"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1034,7 +1034,7 @@
                   moduleName = "iOSDroneNavigationApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangkaixuan/Desktop/DJI/demo/iOSDroneNavigationApp/iOSDroneNavigationApp/UI/OthersViewController.m"
-                  timestampString = "543123659.213016"
+                  timestampString = "546749456.899771"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -1049,27 +1049,12 @@
                   moduleName = "iOSDroneNavigationApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/wangkaixuan/Desktop/DJI/demo/iOSDroneNavigationApp/iOSDroneNavigationApp/UI/OthersViewController.m"
-                  timestampString = "543123659.214886"
+                  timestampString = "546749456.901443"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.36"
-                  moduleName = "iOSDroneNavigationApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangkaixuan/Desktop/DJI/demo/iOSDroneNavigationApp/iOSDroneNavigationApp/UI/OthersViewController.m"
-                  timestampString = "543123659.216731"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1193,11 +1178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.203027"
+            timestampString = "547865943.246972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "676"
-            endingLineNumber = "676"
+            startingLineNumber = "695"
+            endingLineNumber = "695"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1205,15 +1190,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.2030801"
+            timestampString = "547865943.247077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "680"
-            endingLineNumber = "680"
+            startingLineNumber = "699"
+            endingLineNumber = "699"
             landmarkName = "-othersAction:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1221,17 +1206,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.203128"
+            timestampString = "547865943.247136"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "679"
-            endingLineNumber = "679"
+            startingLineNumber = "698"
+            endingLineNumber = "698"
             landmarkName = "-othersAction:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController othersAction:]"
+                  moduleName = "iOSDroneNavigationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangkaixuan/Desktop/DJI/demo/iOSDroneNavigationApp/iOSDroneNavigationApp/ViewController.m"
+                  timestampString = "546749091.702799"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "695"
+                  endingLineNumber = "695"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[ViewController othersAction:]_block_invoke"
+                  moduleName = "iOSDroneNavigationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangkaixuan/Desktop/DJI/demo/iOSDroneNavigationApp/iOSDroneNavigationApp/ViewController.m"
+                  timestampString = "546749091.704519"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "695"
+                  endingLineNumber = "695"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.473"
+                  moduleName = "iOSDroneNavigationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wangkaixuan/Desktop/DJI/demo/iOSDroneNavigationApp/iOSDroneNavigationApp/ViewController.m"
+                  timestampString = "546749091.7062171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "695"
+                  endingLineNumber = "695"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1257,11 +1289,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.2032011"
+            timestampString = "547865943.2472399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "759"
-            endingLineNumber = "759"
+            startingLineNumber = "778"
+            endingLineNumber = "778"
             landmarkName = "-flightController:didUpdateState:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1433,11 +1465,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/ViewController.m"
-            timestampString = "546745360.203403"
+            timestampString = "547865943.247573"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "488"
-            endingLineNumber = "488"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
             landmarkName = "-landingActionInVoiceVC:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1445,7 +1477,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/UI/VoiceViewController.m"
@@ -1465,7 +1497,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/FollowmeMissionController.m"
-            timestampString = "546745360.203475"
+            timestampString = "546749456.662419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "202"
@@ -1481,7 +1513,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/FollowmeMissionController.m"
-            timestampString = "546745360.203522"
+            timestampString = "546749456.662667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
@@ -1497,7 +1529,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/FollowmeMissionController.m"
-            timestampString = "546745360.203565"
+            timestampString = "546749456.662874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "179"
@@ -1513,7 +1545,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSDroneNavigationApp/DJIControl/FollowmeMissionController.m"
-            timestampString = "546745360.203607"
+            timestampString = "546749456.663075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"

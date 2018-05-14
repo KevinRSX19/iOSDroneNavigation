@@ -32,7 +32,7 @@
     DDLogDebug(@"%@", logDirectory);
     //获取排序后的log名称
     NSArray <NSString *>*logsNameArray = [fileLogger.logFileManager sortedLogFileNames];
-    NSLog(@"%@", logsNameArray);
+    NSLog(@"ddlog name array:%@", logsNameArray);
     DDLogDebug(@"%@", logsNameArray);
     [DDLog addLogger:fileLogger];
     return YES;

@@ -43,6 +43,6 @@ typedef NS_ENUM(NSUInteger, CleaningProcess) {
 - (IBAction)descendRangeAction:(id)sender;
 
 - (void)stopMission;
-- (void)startVSCleaning:(double)width height:(double)height cleaningMode:(CleaningMode)mode;
+- (void)startVSCleaning:(float)width height:(float)height cleaningMode:(CleaningMode)mode;
 
 @end

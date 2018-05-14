@@ -26,6 +26,8 @@
 		1B1A65C41FD8D6BC00961F63 /* GimbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A65C21FD8D6BC00961F63 /* GimbleViewController.m */; };
 		1B1A65C51FD8D6BC00961F63 /* GimbleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B1A65C31FD8D6BC00961F63 /* GimbleViewController.xib */; };
 		1B298AE72093FA200064068A /* VirtualStickController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B298AE62093FA200064068A /* VirtualStickController.m */; };
+		1B39B94920AA076E000DA719 /* frozen_inference_graph.pb in Resources */ = {isa = PBXBuildFile; fileRef = 1B39B94720AA076E000DA719 /* frozen_inference_graph.pb */; };
+		1B39B94A20AA076E000DA719 /* labelmap.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1B39B94820AA076E000DA719 /* labelmap.txt */; };
 		1B3AC82C1FE746D000BEB095 /* DJIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3AC82B1FE746D000BEB095 /* DJIController.m */; };
 		1B3AC82D1FE7497400BEB095 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE5E8681FD0C58D0018E7B0 /* MapKit.framework */; };
 		1B3AC8401FE74B3700BEB095 /* VideoPreviewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3AC83F1FE74AC300BEB095 /* VideoPreviewer.framework */; };
@@ -147,6 +149,8 @@
 		1B1A65C31FD8D6BC00961F63 /* GimbleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GimbleViewController.xib; sourceTree = "<group>"; };
 		1B298AE52093FA200064068A /* VirtualStickController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VirtualStickController.h; sourceTree = "<group>"; };
 		1B298AE62093FA200064068A /* VirtualStickController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VirtualStickController.m; sourceTree = "<group>"; };
+		1B39B94720AA076E000DA719 /* frozen_inference_graph.pb */ = {isa = PBXFileReference; lastKnownFileType = file; path = frozen_inference_graph.pb; sourceTree = "<group>"; };
+		1B39B94820AA076E000DA719 /* labelmap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labelmap.txt; sourceTree = "<group>"; };
 		1B3AC82A1FE746D000BEB095 /* DJIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJIController.h; sourceTree = "<group>"; };
 		1B3AC82B1FE746D000BEB095 /* DJIController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJIController.m; sourceTree = "<group>"; };
 		1B3AC83A1FE74AC200BEB095 /* VideoPreviewer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = VideoPreviewer.xcodeproj; path = VideoPreviewer/VideoPreviewer.xcodeproj; sourceTree = "<group>"; };
@@ -247,6 +251,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B39B94520AA06E6000DA719 /* GraffitiDetection */ = {
+			isa = PBXGroup;
+			children = (
+				1B39B94620AA073A000DA719 /* Models */,
+			);
+			path = GraffitiDetection;
+			sourceTree = "<group>";
+		};
+		1B39B94620AA073A000DA719 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B39B94720AA076E000DA719 /* frozen_inference_graph.pb */,
+				1B39B94820AA076E000DA719 /* labelmap.txt */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1B3AC83B1FE74AC200BEB095 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +367,7 @@
 		1BE5E8111FBFE40C0018E7B0 /* iOSDroneNavigationApp */ = {
 			isa = PBXGroup;
 			children = (
+				1B39B94520AA06E6000DA719 /* GraffitiDetection */,
 				1BD779E42040E24F000B021D /* ServerComm */,
 				1BE5E8691FD0C5980018E7B0 /* iOSDroneNavigationApp.entitlements */,
 				1BE5E8611FCFCBC50018E7B0 /* DJIControl */,
@@ -593,6 +615,7 @@
 			files = (
 				1B1A65C51FD8D6BC00961F63 /* GimbleViewController.xib in Resources */,
 				1B3AC8531FEB215E00BEB095 /* CleaningViewController.xib in Resources */,
+				1B39B94A20AA076E000DA719 /* labelmap.txt in Resources */,
 				1B1A65BA1FD8C08B00961F63 /* LandingViewController.xib in Resources */,
 				1BE5E81F1FBFE40C0018E7B0 /* LaunchScreen.storyboard in Resources */,
 				1BE5E8511FCFC5120018E7B0 /* RightButtonListViewController.xib in Resources */,
@@ -604,6 +627,7 @@
 				1BE5E8661FD0C2630018E7B0 /* CheckListTableViewController.xib in Resources */,
 				1BE5E86E1FD0F1720018E7B0 /* VoiceViewController.xib in Resources */,
 				1BE5E8731FD0F7D90018E7B0 /* CheckListTableViewCell.xib in Resources */,
+				1B39B94920AA076E000DA719 /* frozen_inference_graph.pb in Resources */,
 				1B1A65991FD7DCC800961F63 /* TakeoffViewController.xib in Resources */,
 				1BE5E8491FCFC4DA0018E7B0 /* LeftButtonListViewController.xib in Resources */,
 				1B1A65B51FD8B2E000961F63 /* FollowmeConfigViewController.xib in Resources */,

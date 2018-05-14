@@ -12,10 +12,10 @@
 
 @property (nonatomic, strong) NSTimer* updateTimer;
 @property (weak, nonatomic) IBOutlet UIButton *stopBtn;
-@property double sum;
-@property double processCount;
-@property double width;
-@property double height;
+@property float sum;
+@property float processCount;
+@property float width;  //graffiti cleaning field width
+@property float height; //grafftii cleaning field height
 @property int CleaningDirection;
 
 @end
@@ -38,11 +38,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)startVSCleaning:(double)width height:(double)height cleaningMode:(CleaningMode)mode {
+- (void)startVSCleaning:(float)width height:(float)height cleaningMode:(CleaningMode)mode {
     [self setMode:mode];
     [self setProcess:CleaningProcess_Lineward];
     _width = width;
     _height = height;
+    [self startUpdateTimer];
 }
 
 - (void)setMode:(CleaningMode)mode {
@@ -88,16 +89,19 @@
 
 -(void) onUpdateTimerTicked:(id)sender
 {
+    NSLog(@"Cleaning timer ticked!!!!");
     //calculate max_distance = maxSpeed * updateTimeInterval
     if (_mode == CleaningMode_VerMode) {
         _CleaningDirection = 1;
         if (_process == CleaningProcess_Lineward) {
-            double temp = 0.5 * _rollSpeedControl.value + _sum;  //timeInterval * speed
+            float temp = 0.5 * _rollSpeedControl.value + _sum;  //timeInterval * speed, temp = cleaning progress including current action
             if (temp<_width) { //drone keep flying with width
+                NSLog(@"Drone flying along width, sum = %f", _sum*_CleaningDirection);
                 [_vsController setXVelocity:self.rollSpeedControl.value*_CleaningDirection setThrottle:0];
-                _sum += temp;
+                _sum = temp;
             } else if (temp>=_width){ //drone flying to the end of width
-                double tempSpeed = (_width-_sum)/0.5;
+                float tempSpeed = (_width-_sum)/0.5;
+                NSLog(@"Drone flying to the end of width, sum = %f, width = %f", _sum*_CleaningDirection,_width);
                 if (tempSpeed > self.rollSpeedControl.value) {
                     DDLogError(@"VSCleaning, Speed Calculation Error! TempSpeed = %f > Speed = %f",tempSpeed, self.rollSpeedControl.value);
                     tempSpeed = self.rollSpeedControl.value;
@@ -107,28 +111,30 @@
                 [self setProcess:CleaningProcess_LineChange];
             }
         } else if(_process == CleaningProcess_LineChange) {
-            double temp = 0.5 * _descendRangeControl.value + _processCount;
-            if (temp >= _height) {
+            float temp = 0.5 * _descendRangeControl.value + _processCount;
+            if (temp > _height) {
+                NSLog(@"Drone finished cleaning, this is the %f time, height is %f.",_processCount,_height);
                 [_vsController setXVelocity:0 setThrottle:0];
                 [self stopUpdateTimer];
                 DDLogInfo(@"Virtual Stick Cleaning Mission Finished");
                 [self.stopBtn setTitle:@"Finished" forState:UIControlStateNormal];
             } else {
+                NSLog(@"Drone changing line, this is the %f time, cleaning deriction is %d",_processCount,_CleaningDirection);
                 [_vsController setXVelocity:0 setThrottle:self.descendRangeControl.value];
                 _processCount += temp;
-                _CleaningDirection *= -1;
+                _CleaningDirection = 0-_CleaningDirection;
                 [self setProcess:CleaningProcess_Lineward];
             }
         }
     } else if(_mode == CleaningMode_HoriMode) {
         _CleaningDirection = -1;
         if (_process == CleaningProcess_Lineward) {
-            double temp = 0.5 * _rollSpeedControl.value + _sum;  //timeInterval * speed
-            if (temp<_width) { //drone keep flying with width
+            float temp = 0.5 * _rollSpeedControl.value + _sum;  //timeInterval * speed
+            if (temp<_height) { //drone keep flying with width
                 [_vsController setXVelocity:0 setThrottle:self.rollSpeedControl.value*_CleaningDirection];
-                _sum += temp;
-            } else if (temp>=_width){ //drone flying to the end of width
-                double tempSpeed = (_width-_sum)/0.5;
+                _sum = temp;
+            } else if (temp>=_height){ //drone flying to the end of width
+                float tempSpeed = (_height-_sum)/0.5;
                 if (tempSpeed > self.rollSpeedControl.value) {
                     DDLogError(@"VSCleaning, Speed Calculation Error! TempSpeed = %f > Speed = %f",tempSpeed, self.rollSpeedControl.value);
                     tempSpeed = self.rollSpeedControl.value;
@@ -138,8 +144,8 @@
                 [self setProcess:CleaningProcess_LineChange];
             }
         } else if(_process == CleaningProcess_LineChange) {
-            double temp = 0.5 * _descendRangeControl.value + _processCount;
-            if (temp >= _height) {
+            float temp = 0.5 * _descendRangeControl.value + _processCount;
+            if (temp > _width) {
                 [_vsController setXVelocity:0 setThrottle:0];
                 [self stopUpdateTimer];
                 DDLogInfo(@"Virtual Stick Cleaning Mission Finished");
@@ -147,7 +153,7 @@
             } else {
                 [_vsController setXVelocity:self.descendRangeControl.value setThrottle:0];
                 _processCount += temp;
-                _CleaningDirection *= -1;
+                _CleaningDirection = 0-_CleaningDirection;
                 [self setProcess:CleaningProcess_Lineward];
             }
         }
@@ -155,8 +161,8 @@
 }
 
 - (void)stopMission {
-    [_vsController setXVelocity:0 setThrottle:0];
     [self stopUpdateTimer];
+    [_vsController setXVelocity:0 setThrottle:0];
 }
 
 - (IBAction)stopCleaningAction:(id)sender {

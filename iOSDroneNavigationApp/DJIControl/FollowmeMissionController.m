@@ -177,15 +177,16 @@
 -(void) onUpdateTimerTicked:(id)sender {
     //calculate max_distance = maxSpeed * updateTimeInterval
     CLLocationDistance distance = [FollowmeMissionController calculateDistanceBetweenPoint:self.userLocation andPoint:self.droneLocation];
-    double maxDistance = [self.followmeModel.maxFlySpeed doubleValue] * [self.followmeModel.updateTimeInterval doubleValue];
+    float maxDistance = [self.followmeModel.maxFlySpeed floatValue] * [self.followmeModel.updateTimeInterval doubleValue];
     if (distance <= maxDistance) {
         [self.followMeOperator updateFollowMeCoordinate:self.userLocation];
     } else {
-        double lat =(self.userLocation.latitude-self.droneLocation.latitude);
-        double lon =(self.userLocation.longitude-self.droneLocation.longitude);
-        double k =  lat/lon;
-        double tarlat = self.droneLocation.latitude + lat/distance;
-        double tarlon = tarlat/k;
+        float lat =(self.userLocation.latitude-self.droneLocation.latitude);
+        float lon =(self.userLocation.longitude-self.droneLocation.longitude);
+        float k =  lat/lon;
+        float b = self.droneLocation.latitude-self.droneLocation.longitude*k;
+        float tarlon = self.droneLocation.longitude + ONE_METER_OFFSET * [self.followmeModel.maxFlySpeed floatValue];
+        float tarlat = tarlon*k + b;
 //        double ang = atan(k);
         //if user is going to the west of the drone
 //        if(self.userLocation.longitude<self.droneLocation.longitude)

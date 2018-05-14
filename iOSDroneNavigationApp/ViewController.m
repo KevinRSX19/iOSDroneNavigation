@@ -25,6 +25,8 @@
 #import "VirtualStickCleaningViewController.h"
 #import <DJISDK/DJISDK.h>
 #import "DemoUtility.h"
+#import "DJIController.h"
+@import DJISDK;
 
 #import "WayPointModel.h"
 #import "DroneStatusModel.h"
@@ -52,6 +54,8 @@
 @property (strong, nonatomic) OthersViewController* othersVC;
 @property (strong, nonatomic) CleaningViewController* cleaningVC;
 @property (strong, nonatomic) VirtualStickCleaningViewController* vsCleaningVC;
+
+@property (nonatomic) DJIController * controller;
 
 //@property(nonatomic, assign) CLLocationCoordinate2D userLocation;
 @property(nonatomic, assign) CLLocationCoordinate2D homeLocation;
@@ -563,6 +567,20 @@
         CLLocation* location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
         [self.mapVC.mapController addLocationPoint:location withMapView:self.mapVC.mapView];
         //TODO: add three pin points between target and user
+//        float lat1 =(self.mapVC.userLocation.latitude-lat);
+//        float lon1 =(self.mapVC.userLocation.longitude-lon);
+//        float k =  lat1/lon1;
+//        float b = self.mapVC.userLocation.latitude-self.mapVC.userLocation.longitude*k;
+//        float tarlon1 = self.mapVC.userLocation.longitude + ONE_METER_OFFSET * 1500;
+//        float tarlat1 = tarlon1*k + b;
+//        CLLocation* location1 = [[CLLocation alloc] initWithLatitude:tarlat1 longitude:tarlon1];
+//        [self.mapVC.mapController addLocationPoint:location1 withMapView:self.mapVC.mapView];
+//        float tarlon2 = self.mapVC.userLocation.longitude + ONE_METER_OFFSET * 3000;
+//        float tarlat2 = tarlon2*k + b;
+//        CLLocation* location2 = [[CLLocation alloc] initWithLatitude:tarlat2 longitude:tarlon2];
+//        [self.mapVC.mapController addLocationPoint:location2 withMapView:self.mapVC.mapView];
+//        CLLocation* ul = [[CLLocation alloc] initWithLatitude:self.mapVC.userLocation.latitude longitude:self.mapVC.userLocation.longitude];
+//        [self.mapVC.mapController addLocationPoint:ul withMapView:self.mapVC.mapView];
     }else{
         NSString* address = self.addPinVC.address.text;
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -573,7 +591,6 @@
                 CLPlacemark *firstPlacemark = [placemarks firstObject];
                 CLLocation* location = firstPlacemark.location;
                 [self.mapVC.mapController addLocationPoint:location withMapView:self.mapVC.mapView];
-                //TODO: add three pin points between target and user
             }
         }];
     }
@@ -814,7 +831,7 @@
 
 - (void)battery:(DJIBattery *)battery didUpdateState:(DJIBatteryState *)state {
     [self.BatteryLabel setText:[NSString stringWithFormat:@"%ld",state.chargeRemainingInPercent]];
-    self.droneStatus.aircraftBattery = [NSString stringWithFormat:@"%ld",state.chargeRemainingInPercent];
+    self.droneStatus.aircraftBattery = [NSString stringWithFormat:@"%hhu",state.cellVoltageLevel];
     self.droneStatus.aircraftBatteryTemp = [NSString stringWithFormat:@"%f",state.temperature];
     [self.checkListTableVC loadAircraftBatteryState:_droneStatus];
 }
@@ -927,6 +944,8 @@
         [self hideButtons];
     }];
     
+    [self.controller flightOrientationMode:DJIFlightOrientationModeAircraftHeading];
+    
     if(self.cleaningVC.mode.selectedSegmentIndex == 0) {
         //vertical cleaning
         [self.vsCleaningVC startVSCleaning:[self.cleaningVC.g_length.text doubleValue] height:[self.cleaningVC.g_height.text doubleValue] cleaningMode:CleaningMode_VerMode];
@@ -967,6 +986,8 @@
             //TODO
             [self.takeoffVC stopMission];
             break;
+        case MissionMode_GoHome:
+            [self.landingVC stopGoHome];
         case MissionMode_Nothing:
             //            [self.folloemeConfigVC stopMission];
             break;

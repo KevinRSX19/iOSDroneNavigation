@@ -1,0 +1,35 @@
+item {
+  id: 1
+  name: 'throwup graffiti'
+  display_name: "throwup graffiti"
+}
+
+item {
+  id: 2
+  name: 'Wildstyle Graffiti'
+  display_name: "Wildstyle graffiti"
+}
+
+item {
+  id: 3
+  name: 'cartoon graffiti'
+display_name: "cartoon graffiti"
+}
+
+item {
+  id: 4
+  name: 'throwup alphabet'
+display_name: "throwup alphabet"
+}
+
+item {
+  id: 5
+  name: 'Wildstyle Alphabet'
+display_name: "Wildstyle Alphabet"
+}
+
+item {
+  id: 6
+  name: 'cartoon eye'
+display_name: "cartoon eye"
+}
